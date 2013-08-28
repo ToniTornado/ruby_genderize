@@ -10,7 +10,7 @@ describe RubyGenderize::Guesser do
 
     it "#guess_gender returns the string 'female'" do
       result = RubyGenderize::Guesser.guess_gender first_name
-      expect(result).to eq 'female'
+      expect(result).to eq RubyGenderize::Gender.new gender: "female"
     end
 
     it "#female? returns true" do
@@ -33,7 +33,7 @@ describe RubyGenderize::Guesser do
 
     it "#guess_gender returns the string 'male'" do
       result = RubyGenderize::Guesser.guess_gender first_name
-      expect(result).to eq 'male'
+      expect(result).to eq RubyGenderize::Gender.new gender: "male"
     end
 
     it "#male? returns true" do
