@@ -45,5 +45,14 @@ describe RubyGenderize::Guesser do
       result = RubyGenderize::Guesser.female? first_name
       expect(result).to be_false
     end
-  end  
+  end
+
+  describe "given the male first name 'Øle'" do
+    describe "the internal implementation to access Genderize.io API" do
+      it "escapes special characters" do
+        RubyGenderize::Guesser.should_receive(:open).with("http://api.genderize.io?name=%C3%98le").and_return(double(read: "{}"))
+        RubyGenderize::Guesser.guess_gender "Øle"
+      end
+    end
+  end
 end

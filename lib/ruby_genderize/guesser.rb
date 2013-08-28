@@ -22,7 +22,8 @@ module RubyGenderize
     end
 
     def self.read_genderize_api name
-      open(API_BASE_URI + "?name=#{name}").read
+      uri = URI.escape(API_BASE_URI + "?name=#{name}")
+      open(uri).read
     end
 
     def self.convert_json_hash_to_ruby_hash json_hash
