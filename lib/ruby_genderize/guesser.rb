@@ -22,7 +22,7 @@ module RubyGenderize
     end
 
     def self.read_genderize_api name
-      uri = URI.escape(API_BASE_URI + "?name=#{name}")
+      uri = URI.escape(API_BASE_URI + "?name=#{name}&country_id=de")
       open(uri).read
     end
 
